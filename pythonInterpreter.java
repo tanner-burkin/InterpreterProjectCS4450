@@ -17,7 +17,7 @@ public class pythonInterpreter {
 	
 	
 	public static void interpret(String str){
-		String[] tokens = Tokenizer.tokenize(str);
+		String[] tokens = Tokenizer.doTokenize(str);
 
 		if (checkVar(tokens[0])){
 			if (tokens.length > 2 && tokens[1].equals("=")){
