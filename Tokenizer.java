@@ -14,10 +14,6 @@ public class Tokenizer {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-				
-		System.out.println(Arrays.toString(doTokenize("123+56*num1"))); 
-		System.out.println(Arrays.toString(doTokenize("(1+ 23) * 9"))); 
-		System.out.println(Arrays.toString(doTokenize("aa1= (14 - 3) *2/a23"))); 
 
 	}
 	
