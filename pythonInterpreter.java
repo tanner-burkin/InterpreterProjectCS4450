@@ -34,7 +34,7 @@ public class pythonInterpreter {
 			} else if (tokens[0].equals("print")){
 				System.out.println(Evaluator.evalExpr(str.substring(5,str.length())));
 			} 
-		} else if (SimpleParser.isExprHelper(str)) {
+		} else if (mainParser.checkExprHelper(str)) {
 			System.out.println(Evaluator.evalExpr(str));
 		} 
 	}
