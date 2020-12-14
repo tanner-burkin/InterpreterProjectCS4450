@@ -48,14 +48,14 @@ public class mainParser {
 		
 		if (openP && closeP) {
 			subArray = Arrays.copyOfRange(s, openI, closeI - 1);
-			return (isExpr(subArray));
+			return (checkExpr(subArray));
 		}
 		else if (openP && !closeP) {
 			subArray = Arrays.copyOfRange(s, openI + 1, s.length);
-			return isExpr(subArray);
+			return checkExpr(subArray);
 		} else if (closeP && !openP) {
 			subArray = Arrays.copyOfRange(s, 0, closeI);
-			return isExpr(subArray);
+			return checkExpr(subArray);
 		} else {
 			return checkID(s);
 		}
@@ -95,7 +95,7 @@ public class mainParser {
 		String[] final = {};
 		if (BalancedExpression.isBalanced(s)) {
 			final = Tokenizer.doTokenize(s);
-			return isExpr(final);
+			return checkExpr(final);
 		} else {
 			return BalancedExpression.isBalanced(s);
 		}
