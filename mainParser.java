@@ -93,11 +93,11 @@ public class mainParser {
 	
 	static boolean checkExprHelp(String s){
 		String[] final = {};
-		if (BalancedExpression.isBalanced(s)) {
+		if (Balanced.checkBalanced(s)) {
 			final = Tokenizer.doTokenize(s);
 			return checkExpr(final);
 		} else {
-			return BalancedExpression.isBalanced(s);
+			return Balanced.checkBalanced(s);
 		}
 	}
 
