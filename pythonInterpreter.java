@@ -28,14 +28,14 @@ public class pythonInterpreter {
 					} 
 					str = str + tokens[i];
 				}
-				mainMap.put(tokens[0], Evaluator.evalExpr(str));
+				mainMap.put(tokens[0], mainEvaluator.evalExpr(str));
 			} else if (tokens.length == 1 && (mainMap.containsKey(str))){
 				System.out.println(mainMap.get(tokens[0]));
 			} else if (tokens[0].equals("print")){
-				System.out.println(Evaluator.evalExpr(str.substring(5,str.length())));
+				System.out.println(mainEvaluator.evalExpr(str.substring(5,str.length())));
 			} 
 		} else if (mainParser.checkExprHelper(str)) {
-			System.out.println(Evaluator.evalExpr(str));
+			System.out.println(mainEvaluator.evalExpr(str));
 		} 
 	}
 
