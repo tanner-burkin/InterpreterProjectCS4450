@@ -8,26 +8,24 @@ public class pythonInterpreter {
 	
 	static HashMap<String, String> mainMap = new HashMap<>();
 	
-	public static boolean isVar(String str){
-		Pattern p = Pattern.compile("^[A-Za-z][\\_]*[\\w]*");
-		Matcher m = p.matcher(str);
-		boolean b = m.matches();
-		return b;
+	public static boolean checkVar(String str){
+		Pattern pat = Pattern.compile("^[A-Za-z][\\_]*[\\w]*");
+		Matcher match = pat.matcher(str);
+		boolean bool = match.matches();
+		return bool;
 	}
 	
 	
 	public static void interpret(String str){
 		String[] tokens = Tokenizer.tokenize(str);
 
-		if (isVar(tokens[0])){
+		if (checkVar(tokens[0])){
 			if (tokens.length > 2 && tokens[1].equals("=")){
 				str = "";
 				for (int i = 0; i < tokens.length; i++){
-					// set string to empty
-					if (isVar(tokens[i]) && i >= 2){
+					if (checkVar(tokens[i]) && i >= 2){
 						tokens[i] = mainMap.get(tokens[i]).toString();
 					} 
-					// rebuild string with hashed token values
 					str = str + tokens[i];
 				}
 				mainMap.put(tokens[0], Evaluator.evalExpr(str));
@@ -43,16 +41,16 @@ public class pythonInterpreter {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
 		while (true) {
 			System.out.print(">>> ");
-			String in = sc.nextLine();
+			String newString = scanner.nextLine();
 			
-			if (in.equals("quit")) {
+			if (newString.equals("quit")) {
 				System.exit(0);
 			} else 
-				interpret(in);
+				interpret(newString);
 
 		}
 
