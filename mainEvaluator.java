@@ -23,13 +23,13 @@ public class mainEvaluator {
         if (op.equals("+")){
             exp = Double.toString(add(x,y));
         } else if (op.equals("*")){
-            exp = Double.toString(mult(x,y));
+            exp = Double.toString(multi(x,y));
         } else if (op.equals("%")) {
         	exp = Double.toString(mod(x,y));
         } else if (op.equals("-")) {
-        	exp = Double.toString(sub(x,y));
+        	exp = Double.toString(subt(x,y));
         } else if (op.equals("/")) {
-        	exp = Double.toString(div(x,y));
+        	exp = Double.toString(divi(x,y));
         }
         
         return exp;
@@ -106,7 +106,9 @@ public class mainEvaluator {
 					ops.pop();
 			} else if (!mainParser.checkExprHelp(s2[i])){
 				currentOp = s2[i];
-				currentPrec = preceden(currentOp);
+				int currentPrec = preceden(currentOp);
+				int nextPrec;
+
 
 				if (!ops.isEmpty()) {
 					nextPrec = preceden(ops.peek());
@@ -141,7 +143,8 @@ public class mainEvaluator {
 	    	return vars.pop();
 		} else if (d && !nums.isEmpty()) {
 			return nums.pop();
-		} else if (!numbers.isEmpty()) {
+		} else if (!nums.isEmpty()) {
+
 			BigDecimal num = new BigDecimal(nums.pop());
 		    return num.stripTrailingZeros().toPlainString();
 	    } else 

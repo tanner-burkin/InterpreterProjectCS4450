@@ -1,5 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,6 +11,7 @@ import java.util.regex.Pattern;
 public class pythonInterpreter {
 	
 	static HashMap<String, String> mainMap = new HashMap<>();
+	static String[] linesOfCode = new String[1000];
 	
 	public static boolean checkVar(String str){
 		Pattern pat = Pattern.compile("^[A-Za-z][\\_]*[\\w]*");
@@ -34,25 +39,56 @@ public class pythonInterpreter {
 			} else if (tokens[0].equals("print")){
 				System.out.println(mainEvaluator.evalExpr(str.substring(5,str.length())));
 			} 
-		} else if (mainParser.checkExprHelper(str)) {
+		} else if (mainParser.checkExprHelp(str)) {
 			System.out.println(mainEvaluator.evalExpr(str));
 		} 
+	}
+	
+	public static String[] lines() {
+		List<String> stringList = new ArrayList<String>();
+		String newLine = new String();
+	    
+	    try {
+	    	File file = new File("pythonCode.py");
+	        Scanner scan = new Scanner(file);        
+	        
+	        while (scan.hasNextLine()) {
+	        	newLine = scan.nextLine();
+	        	if(!newLine.isEmpty()) {
+		        	if(newLine.charAt(0) != '#') {
+		        		stringList.add(newLine);
+		        	}
+	        	}
+	        }
+	        String[] strings = new String[ stringList.size() ];
+	        stringList.toArray( strings );
+	        
+	        scan.close();
+	        
+		    return strings;
+
+	      } catch (FileNotFoundException e) {
+	    	  System.out.println(e);
+	    	  System.out.println("File Not Found");
+	      }	   
+	    return null;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner scanner = new Scanner(System.in);
-		
-		while (true) {
-			System.out.print(">>> ");
-			String newString = scanner.nextLine();
-			
-			if (newString.equals("quit")) {
-				System.exit(0);
-			} else 
-				interpret(newString);
+		Scanner scanner = new Scanner(System.in);			
+		linesOfCode = lines();
 
+		for(int i = 0; i < linesOfCode.length; i++) {
+			if (linesOfCode[i].equals("quit")) {
+				System.exit(0);
+			}
+				
+			interpret(linesOfCode[i]);
 		}
+		
+		
+		
 
 	}
 

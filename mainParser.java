@@ -8,11 +8,12 @@ import java.util.Scanner;
 public class mainParser {
 	
 	static boolean checkID(String[] s){
-		StringBuffer final = new StringBuffer();
+		StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < s.length; i++){
-			final.append(s[i]);
+			sb.append(s[i]);
 		}
-		String s2 = final.toString();
+		String s2 = sb.toString();
+
 		
 		if(s2 == null)
 			return false;
@@ -73,6 +74,7 @@ public class mainParser {
 		int end = s.length;
 		boolean multi = false;
 		int multiI = -1;
+
 		
 		for (int i = 0; i < s.length; i++){
 			if (s[i].equals("*") || s[i].equals("/") || s[i].equals("%")) {
@@ -82,9 +84,9 @@ public class mainParser {
 		}
 		
 		if (multi) {
-			l = Arrays.copyOfRange(s, start, multIndex);
-			r = Arrays.copyOfRange(s,  multIndex+1, end);
-			return ((checkTerm(left)) && checkFactor(right));
+			l = Arrays.copyOfRange(s, start, multiI);
+			r = Arrays.copyOfRange(s,  multiI+1, end);
+			return ((checkTerm(l)) && checkFactor(r));
 		}
 		else
 			return checkFactor(s);
@@ -92,10 +94,11 @@ public class mainParser {
 	}
 	
 	static boolean checkExprHelp(String s){
-		String[] final = {};
+		String[] st = {};
 		if (Balanced.checkBalanced(s)) {
-			final = Tokenizer.doTokenize(s);
-			return checkExpr(final);
+			st = Tokenizer.doTokenize(s);
+			return checkExpr(st);
+
 		} else {
 			return Balanced.checkBalanced(s);
 		}
@@ -130,13 +133,14 @@ public class mainParser {
 	
 	public static void main(String[] args) {
 
-		System.out.println(checkExprHelper("123"));
-		System.out.println(checkExprHelper("1 + 3"));
-		System.out.println(checkExprHelper("(1 + 3) * 45"));
-		System.out.println(checkExprHelper("(1 + (2 + 1)) * 45"));
-		System.out.println(checkExprHelper("(1 + (2 + 1)) * (78+3*15) +45"));
-		System.out.println(checkExprHelper("(1 +"));
-		System.out.println(checkExprHelper("1 + * 2"));
+		System.out.println(checkExprHelp("123"));
+		System.out.println(checkExprHelp("1 + 3"));
+		System.out.println(checkExprHelp("(1 + 3) * 45"));
+		System.out.println(checkExprHelp("(1 + (2 + 1)) * 45"));
+		System.out.println(checkExprHelp("(1 + (2 + 1)) * (78+3*15) +45"));
+		System.out.println(checkExprHelp("(1 +"));
+		System.out.println(checkExprHelp("1 + * 2"));
+
 	
 	}
 
