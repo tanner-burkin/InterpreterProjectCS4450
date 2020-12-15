@@ -30,7 +30,9 @@ public class mainEvaluator {
         	exp = Double.toString(subt(x,y));
         } else if (op.equals("/")) {
         	exp = Double.toString(divi(x,y));
-        }
+        } else if (op.equals("^")) {
+		exp = Double.toString(expon(x,y));
+	}	
         
         return exp;
     }
@@ -51,9 +53,13 @@ public class mainEvaluator {
     }
     
     public static double mod(double x, double y) {
-    	System.out.println("X: " + x + "Y: " + y + x%y);
     	return x % y;
     }
+    public static double expon(double x, double y) {
+	return (int)x^(int)y;    
+    }
+    
+	
     
 	public static String evalExpr(String s) {
 		String[] s2 = Tokenizer.doTokenize(s);
