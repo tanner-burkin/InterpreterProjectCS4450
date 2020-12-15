@@ -49,7 +49,7 @@ public class pythonInterpreter {
 		String newLine = new String();
 	    
 	    try {
-	    	File file = new File("D:\\Programs\\Eclipse\\workspace\\Interpret\\src\\python_test_code.py");
+	    	File file = new File("pythonCode.py");
 	        Scanner scan = new Scanner(file);        
 	        
 	        while (scan.hasNextLine()) {
@@ -80,19 +80,17 @@ public class pythonInterpreter {
 		Scanner scanner = new Scanner(System.in);
 				
 		linesOfCode = lines();
-		
-		while (true) {
-			System.out.print(">>> ");
-			String newString = scanner.nextLine();
-			
-			
-			
-			if (newString.equals("quit")) {
-				System.exit(0);
-			} else 
-				interpret(newString);
 
+		for(int i = 0; i < linesOfCode.length; i++) {
+			if (linesOfCode[i].equals("quit")) {
+				System.exit(0);
+			}
+				
+			interpret(linesOfCode[i]);
 		}
+		
+		
+		
 
 	}
 	
