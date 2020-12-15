@@ -109,6 +109,7 @@ public class mainEvaluator {
 				int currentPrec = preceden(currentOp);
 				int nextPrec;
 
+
 				if (!ops.isEmpty()) {
 					nextPrec = preceden(ops.peek());
 				} else 
@@ -143,6 +144,7 @@ public class mainEvaluator {
 		} else if (d && !nums.isEmpty()) {
 			return nums.pop();
 		} else if (!nums.isEmpty()) {
+
 			BigDecimal num = new BigDecimal(nums.pop());
 		    return num.stripTrailingZeros().toPlainString();
 	    } else 

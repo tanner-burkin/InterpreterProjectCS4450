@@ -13,6 +13,7 @@ public class mainParser {
 			sb.append(s[i]);
 		}
 		String s2 = sb.toString();
+
 		
 		if(s2 == null)
 			return false;
@@ -97,6 +98,7 @@ public class mainParser {
 		if (Balanced.checkBalanced(s)) {
 			st = Tokenizer.doTokenize(s);
 			return checkExpr(st);
+
 		} else {
 			return Balanced.checkBalanced(s);
 		}
@@ -138,6 +140,7 @@ public class mainParser {
 		System.out.println(checkExprHelp("(1 + (2 + 1)) * (78+3*15) +45"));
 		System.out.println(checkExprHelp("(1 +"));
 		System.out.println(checkExprHelp("1 + * 2"));
+
 	
 	}
 

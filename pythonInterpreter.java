@@ -74,11 +74,9 @@ public class pythonInterpreter {
 	    return null;
 	}
 
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner scanner = new Scanner(System.in);
-				
+		Scanner scanner = new Scanner(System.in);			
 		linesOfCode = lines();
 
 		for(int i = 0; i < linesOfCode.length; i++) {
@@ -93,6 +91,5 @@ public class pythonInterpreter {
 		
 
 	}
-	
 
 }

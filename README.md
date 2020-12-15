@@ -4,9 +4,12 @@
 This project is a simple interpreter that we are going to build that will be able to interpret Python code.
 
 ## Team Members:
-> John Burkin  
-> Payton Boekhout  
-> Tanner Bahora  
+> John Burkin
+> jtbd4k@umsystem.edu
+> Payton Boekhout
+> plb4dq@umsystem.edu
+> Tanner Bahora
+> tmbhc4@umsystem.edu
 
 ## Requirements:
 > 1. Must be able to support if/else control statements.
