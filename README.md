@@ -1,7 +1,7 @@
 # Sports Guys Interpreter Project CS 4450
 
 ## About:
-This project is a simple interpreter that we are going to build that will be able to interpret Python code.
+This project is a simple interpreter using Java that will interpret Python code. It is made to fill the requirements below and compile with no errors to produce the test code to the best of our ability. Our group learned a lot during this project about interpreters and how to make one language read in another. We worked to the best of our ability to complete this project and enjoyed contructing this Python interpreter written in Java.
 
 ## Team Members:
 > John Burkin
@@ -15,10 +15,10 @@ This project is a simple interpreter that we are going to build that will be abl
 > 1. Must be able to support if/else control statements.
 > 2. Must be able to declare variables.
 > 3. Support loops.
-> 4. Support arithmetic operators.
+> 4. Support arithmetic operators. - Completed
 > 5. Support assignment operators.
 > 6. Support conditional statements.
-> 7. Allow for comments.
+> 7. Allow for comments. - Completed
 > 8. Support print function.
   
 ## How to use/run:
