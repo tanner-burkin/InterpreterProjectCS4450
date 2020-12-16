@@ -22,4 +22,4 @@ This project is a simple interpreter using Java that will interpret Python code.
 > 8. Support print function.
   
 ## How to use/run:
-While the test code doesn't work, it does run a very simple python file named pythonCode.py. Running pythonInterpreter.java should automatically run this file, which is hard-coded into the lines() function.
+While the test code doesn't work, it does run a very simple python file named pythonCode.py. Running pythonInterpreter.java should automatically run this file, which is hard-coded into the lines() function on line 75 of the pythonInterpreter.java file.
