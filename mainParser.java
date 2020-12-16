@@ -132,15 +132,6 @@ public class mainParser {
 	}
 	
 	public static void main(String[] args) {
-
-		System.out.println(checkExprHelp("123"));
-		System.out.println(checkExprHelp("1 + 3"));
-		System.out.println(checkExprHelp("(1 + 3) * 45"));
-		System.out.println(checkExprHelp("(1 + (2 + 1)) * 45"));
-		System.out.println(checkExprHelp("(1 + (2 + 1)) * (78+3*15) +45"));
-		System.out.println(checkExprHelp("(1 +"));
-		System.out.println(checkExprHelp("1 + * 2"));
-
 	
 	}
 
