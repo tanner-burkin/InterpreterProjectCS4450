@@ -4,7 +4,7 @@
 This project is a simple interpreter that we are going to build that will be able to interpret Python code.
 
 ## Team Members:
-> John Burkin\n
+> John Burkin
 > jtbd4k@umsystem.edu
 > Payton Boekhout
 > plb4dq@umsystem.edu
