@@ -15,10 +15,10 @@ This project is a simple interpreter using Java that will interpret Python code.
 > 1. Must be able to support if/else control statements.
 > 2. Must be able to declare variables.
 > 3. Support loops.
-> 4. Support arithmetic operators. - Completed
+> 4. Support arithmetic operators.
 > 5. Support assignment operators.
 > 6. Support conditional statements.
-> 7. Allow for comments. - Completed
+> 7. Allow for comments.
 > 8. Support print function.
   
 ## How to use/run:
