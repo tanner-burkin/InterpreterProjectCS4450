@@ -23,8 +23,30 @@ public class pythonInterpreter {
 	
 	public static void interpret(String str){
 		String[] tokens = Tokenizer.doTokenize(str);
-
-		if (checkVar(tokens[0])){
+		
+		if (tokens[0].equals("print")) {
+			if(checkVar(tokens[2]) && (mainMap.containsKey(tokens[2]))) {
+				System.out.println(mainMap.get(tokens[2]));
+			}
+			else if(tokens[2].equals("\"")) {
+				char[] print = new char[str.length() - 9];
+				str.getChars(7, str.length()-2, print, 0);
+				
+				System.out.print(new String(print));
+				System.out.print("\n");
+			}
+			else {
+				char[] expArr = new char[str.length() - 7];
+				str.getChars(6, str.length()-1, expArr, 0);
+				String exp = new String(expArr);
+				if(mainParser.checkExprHelp(exp)) {
+					System.out.println(mainEvaluator.evalExpr(str));
+				}
+			}
+			
+		}
+		
+		else if (checkVar(tokens[0])){
 			if (tokens.length > 2 && tokens[1].equals("=")){
 				str = "";
 				for (int i = 0; i < tokens.length; i++){
@@ -41,7 +63,8 @@ public class pythonInterpreter {
 			} 
 		} else if (mainParser.checkExprHelp(str)) {
 			System.out.println(mainEvaluator.evalExpr(str));
-		} 
+		}
+
 	}
 	
 	public static String[] lines() {
