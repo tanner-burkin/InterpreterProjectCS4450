@@ -8,7 +8,7 @@ public class Tokenizer {
 
 	static String[] doTokenize(String s) {
 		String s2 = s.replaceAll("\\s+", "");
-		String[] st = s2.split("(?<=[-+*/=()])|(?=[-+*/=()])");
+		String[] st = s2.split("(?<=[\"-+*/=()^])|(?=[\"-+*/=()^])");
 		return st;
 	}
 
